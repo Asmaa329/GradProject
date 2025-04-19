@@ -9,17 +9,17 @@
     <link rel="stylesheet" href="framework.css">
     <!--bootstrap  -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-     <!-- font awsome library--> <!-- that's my own library (my awsome kit) -->
-     <script src="https://kit.fontawesome.com/1ae36b3c15.js" crossorigin="anonymous"></script>
-     <!-- bootstrap icons library -->
-     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-     <!-- google fonts -->
-     <link rel="preconnect" href="https://fonts.googleapis.com">
-     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-     <link href="https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-     <link rel="preconnect" href="https://fonts.googleapis.com">
-     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-     <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <!-- font awsome library--> <!-- that's my own library (my awsome kit) -->
+    <script src="https://kit.fontawesome.com/1ae36b3c15.js" crossorigin="anonymous"></script>
+    <!-- bootstrap icons library -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <!-- google fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 </head>
 <body>
     <div class="page d-flex ">
@@ -101,7 +101,7 @@
                         <img src="images/hacker-avatar.jpg" class="avatar-image-2 " alt="">
 
                         <div id="userDATA" class="data text-center d-flex p-2 my-5 flex-column flex-md-row justify-content-center justify-content-md-evenly">
-                            <div id="userNAME" class="d-flex flex-column m-3" style="font-size: 17px; color: var(--main-color);">Nada Tareq <span class=" lead" style="font-size:14px ; color: var(--copper-color);">pin tester</span> </div>
+                            <div id="user-card-name" class="d-flex flex-column m-3" style="font-size: 17px; color: var(--main-color);">Nada Tareq <span class=" lead" style="font-size:14px ; color: var(--copper-color);">pin tester</span> </div>
                             <div id="userLABS" class="d-flex flex-column m-3" style="font-size: 17px; color: var(--main-color);">10 <span class=" lead" style="font-size: 14px; color: var(--copper-color);">labs</span> </div>
                             <div id="userLEVEL" class="d-flex flex-column m-3" style="font-size: 17px; color: var(--main-color);">3 <span class="lead" style="font-size: 14px; color: var(--copper-color);">level</span></div>
                             <a href="progress.html" role="button" class=" btn btn-outline-warning m-4 d-md-none" style="width: auto;">Progress</a>
@@ -163,46 +163,7 @@
             <!-- end of wrapper -->
             <!-- end of the content -->
         </div>
-        <script>
-        async function fetchUserProfile() {
-        const token = sessionStorage.getItem("token") || localStorage.getItem("token");
-
-        if (!token) {
-        alert("Session expired, please log in again.");
-        window.location.href = "../signin.html";
-        return;
-        }
-
-        try {
-        const response = await fetch("http://localhost:5147/api/auth/profile", {
-        method: "GET",
-        headers: {
-        "Authorization": `Bearer ${token}`,
-        "Content-Type": "application/json"
-        }
-        });
-
-        if (!response.ok) {
-        const errorData = await response.json();
-        console.error("Server error:", errorData);
-        alert(errorData.message || "Failed to fetch user profile");
-        return;
-        }
-
-        const data = await response.json();
-        console.log("User profile data:", data); // طباعة البيانات للتأكد
-
-        // تحديث الصفحة بالبيانات المسترجعة
-        document.getElementById("user-name").textContent = data.username || "Guest";
-        } catch (error) {
-        console.error("Error fetching user profile:", error);
-        alert("Error loading profile.");
-        }
-        }
-
-        document.addEventListener("DOMContentLoaded", fetchUserProfile);
-        </script>
-
+       
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
         <script src="accountview.js"></script>
 </body>

@@ -178,6 +178,27 @@ namespace GradProject.Controllers
                 user.Email
             });
         }
+        [Authorize]
+        [HttpPut("change-password")]
+        public async Task<IActionResult> ChangePassword([FromBody] ChangePasswordDto model)
+        {
+            var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+            if (userId == null) return Unauthorized("User not found.");
+
+            var user = await _userManager.FindByIdAsync(userId);
+            if (user == null) return NotFound("User not found.");
+
+            var result = await _userManager.ChangePasswordAsync(user, model.OldPassword, model.NewPassword);
+
+            if (!result.Succeeded)
+            {
+                var errors = string.Join(" - ", result.Errors.Select(e => e.Description));
+                return BadRequest(new { message = errors });
+            }
+
+            return Ok(new { message = "Password changed successfully" });
+        }
+
 
     }
 }

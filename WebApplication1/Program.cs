@@ -57,14 +57,14 @@ namespace GradProject
                 };
             });
             // Add CORS policy 
-            builder.Services.AddCors(options =>
-            {
-                options.AddPolicy("AllowFrontend",
-                    policy => policy.WithOrigins("http://localhost:3000", "http://127.0.0.1:3000") // Update with your frontend URL
-                                    .AllowAnyMethod()
-                                    .AllowAnyHeader()
-                                    .AllowCredentials());
-            });
+            //builder.Services.AddCors(options =>
+            //{
+            //    options.AddPolicy("AllowFrontend",
+            //        policy => policy.WithOrigins("http://localhost:3000", "http://127.0.0.1:3000") // Update with your frontend URL
+            //                        .AllowAnyMethod()
+            //                        .AllowAnyHeader()
+            //                        .AllowCredentials());
+            //});
 
 
             var app = builder.Build();
@@ -85,7 +85,7 @@ namespace GradProject
 
             app.UseRouting();        // 🔹 يجب أن يكون قبل المصادقة والتفويض
 
-            app.UseCors("AllowFrontend");  // 🔹 يجب أن يكون قبل UseAuthentication
+            //app.UseCors("AllowFrontend");  // 🔹 يجب أن يكون قبل UseAuthentication
 
             app.UseAuthentication();  // 🔹 يجب أن يكون قبل UseAuthorization
             app.UseAuthorization();   // 🔹 يجب أن يكون بعد UseAuthentication

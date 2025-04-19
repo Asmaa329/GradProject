@@ -61,39 +61,37 @@
         <!-- end of side navigator -->
 
         <!-- start of the content -->
-         <div class=" w-full">
+        <div class=" w-full">
             <!-- start of head -->
             <div class=" bg-white p-3 d-flex align-items-center justify-content-between">
                 <div class="search p-relative">
-                   <div class="input-group" style="width: 200px;">
-                    <button id="searchButton" class="input-group-text"> <i class="bi bi-search"></i></button>
-                    <input id="searchInput" type="search" class="form-control"  placeholder=" search here">
-                   </div>
+                    <div class="input-group" style="width: 200px;">
+                        <button id="searchButton" class="input-group-text"> <i class="bi bi-search"></i></button>
+                        <input id="searchInput" type="search" class="form-control" placeholder=" search here">
+                    </div>
                 </div>
                 <div class="icons d-flex align-items-center">
                     <span id="notificationIcon" class="notificationIcon p-relative align">
-                        <i  class="bi bi-bell-fill fa-lg"></i>
+                        <i class="bi bi-bell-fill fa-lg"></i>
                         <span id="notificationBadge" class="notification-badge"></span>
                     </span>
                     <div id="notificationList" class="notification-dropdown">
                         <h4 style="color: var(--copper-color);">Notifications</h4>
-                        <ul id="notifications"></ul> 
+                        <ul id="notifications"></ul>
                     </div>
-                    <img id="avatar" class="hacker-image px-2" src="images/hacker-avatar.jpg" alt="User Avatar" >
+                    <img id="avatar" class="hacker-image px-2" src="images/hacker-avatar.jpg" alt="User Avatar">
                 </div>
             </div>
             <!-- end of heah -->
-
             <!-- start of heading and scroll bar -->
             <h1 class="heading ">Settings</h1>
             <!-- end of heading and scroll bar -->
-
             <!-- start of wrapper-->
-            <div class="container"> 
+            <div class="container">
                 <!-- first row -->
                 <div class="row gap-5 justify-content-evenly">
                     <!-- start of general info -->
-                    <div class="general-info col-11 col-lg-5 bg-white " >
+                    <div class="general-info col-11 col-lg-5 bg-white ">
                         <h4 class="mb-1 color-main">General info</h4>
                         <span class="text-muted ">General information about your account</span>
 
@@ -112,14 +110,37 @@
                     </div>
 
 
-                    <div class="general-info col-11 col-lg-5 bg-white " >
+                    <div class="general-info col-11 col-lg-5 bg-white ">
                         <h4 class="mb-1 color-main">Security info</h4>
                         <span class="text-muted ">We keep your data secure</span>
 
-                        <div class="form mt-4 mb-2 p-1">
-                            <label for="Password" class="text-muted d-block mb-1">Password</label>
-                            <input type="password" disabled id="Password" class="border rounded-2  w-full p-2 mb-3 "  placeholder="******">
-                            <button class="btn btn-outline-warning "style="height: 42px;" onclick="enableEdit('Password')" >Change</button>
+                        <!--<div class="form mt-4 mb-2 p-1" id="passwordForm">
+                <label for="oldPassword" class="text-muted d-block mb-1">Old Password</label>
+                <input type="password" disabled id="oldPassword" class="border rounded-2  w-full p-2 mb-3 " placeholder="******">
+                <button class="btn btn-outline-warning " style="height: 42px;" onclick="enableEdit()">Change</button>
+
+                <label for="newPassword" class="text-muted d-block mb-1">New Password</label>
+                <input type="password" disabled id="newPassword" class="border rounded-2  w-full p-2 mb-3 " placeholder="******">
+
+                <label for="confirmPassword" class="text-muted d-block mb-1">Confirm New Password</label>
+                <input type="password" disabled id="confirmPassword" class="border rounded-2  w-full p-2 mb-3 " placeholder="******">
+                <button type="submit" class="btn btn-outline-warning " style="height: 42px;">Submit</button>
+
+                <p id="ERRORmessage" style="color:#044e7d; display: none;"></p>-->
+                        <div class="form mt-4 mb-2 p-1" id="passwordForm">
+                            <label for="oldPassword" class="text-muted d-block mb-1">Old Password</label>
+                            <input type="password" id="oldPassword" class="border rounded-2 w-full p-2 mb-3" placeholder="******" disabled>
+                            <button type="button" class="btn btn-outline-warning mb-3" onclick="enablePasswordInputs()">Change Password</button>
+
+                            <label for="newPassword" class="text-muted d-block mb-1">New Password</label>
+                            <input type="password" id="newPassword" class="border rounded-2 w-full p-2 mb-3" placeholder="******" disabled>
+
+                            <label for="confirmPassword" class="text-muted d-block mb-1">Confirm New Password</label>
+                            <input type="password" id="confirmPassword" class="border rounded-2 w-full p-2 mb-3" placeholder="******" disabled>
+
+                            <button type="button" class="btn btn-outline-warning" style="height: 42px;" onclick="submitNewPassword()">Submit</button>
+
+                            <p id="ERRORmessage" style="color:#d9534f; display: none;"></p>
 
                             <button id="logoutButton" class="btn btn-warning m-1 my-4">Log out</button>
                         </div>
@@ -127,32 +148,16 @@
                     </div>
 
                 </div>
-                
+
             </div>
-            
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        <!-- end of content -->
+            <!-- end of content -->
         </div>
     <!-- end of page -->
     </div>
+
 <!-- js -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 <script src="accountview.js"></script>
 </body>
+</html>
